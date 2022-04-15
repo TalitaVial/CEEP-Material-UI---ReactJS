@@ -5,8 +5,15 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
+const style = {
+  stack: {float: 'left',margin: '2rem'},
+  textField: {minWidth: 400, margin: '1rem',fontFamily: 'Roboto'},
+  button: {display: 'flex', alignItems: 'center', justifyContent: 'center' ,background:'#add8e6', padding: '.6rem', margin: '2rem'},
+  addCircleIcon : {marginLeft: '.8rem'}
+}
 
 class FormularioCadastro extends Component {
+  
   constructor(props){
     super(props);
     this.titulo="";
@@ -34,10 +41,10 @@ class FormularioCadastro extends Component {
 
   render() { 
     return (
-      <Stack onSubmit={this._criarNota.bind(this)} component="form" sx={{width: '25ch'}} spacing={2} autoComplete="off">
-        <TextField onChange={this._handleMudancaTitulo.bind(this)} sx={{minWidth: 400}} hiddenLabel id="filled-hidden-label-small" defaultValue="Título" variant="filled" size="small" />
-        <TextField onChange={this._handleMudancaTexto.bind(this)} sx={{minWidth: 400}} id="filled-multiline-static" label="Multiline" multiline rows={6} defaultValue="Escreva sua Nota" variant="filled"/>
-        <Button type="submit" sx={{background:'#add8e6'}}>Criar Nota<AddCircleIcon></AddCircleIcon></Button>
+      <Stack sx={style.stack} onSubmit={this._criarNota.bind(this)} component="form" autoComplete="off">
+        <TextField onChange={this._handleMudancaTitulo.bind(this)} sx={style.textField} hiddenLabel id="filled-hidden-label-small" defaultValue="Título" variant="filled" size="small" />
+        <TextField onChange={this._handleMudancaTexto.bind(this)} sx={style.textField} id="filled-multiline-static" multiline rows={6} defaultValue="Escreva sua Nota" variant="filled"/>
+        <Button type="submit" sx={style.button}>Criar Nota<AddCircleIcon sx={style.addCircleIcon}></AddCircleIcon></Button>
       </Stack>
     );
   }

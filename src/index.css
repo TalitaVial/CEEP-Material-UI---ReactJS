@@ -1,15 +1,5 @@
-
 .sessao_componentes{
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 2rem;
-  
-}
+  flex-wrap: wrap;
 
-@media (max-width: 600px){
-  .sessao_componentes{
-    flex-wrap: wrap;
-    
-  }
 }

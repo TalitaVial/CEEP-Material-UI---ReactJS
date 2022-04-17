@@ -10,10 +10,10 @@ import EditIcon from '@mui/icons-material/Edit';
 
 
 const style = {
-  card: { width: 450,display: 'block', background: '#ffff',flot: 'rigth'},
-  cardContent : {textAlign:'flex-start'},
+  cardContent : {display: 'block'},
   typographyS : {fontSize: '1.3rem', fontFamily: 'Roboto'},
   typography : {fontSize: '1rem', fontFamily: 'Roboto'},
+  cardActions: {display: 'flex'},
   button : {background: '#add8e6'},
   editIcon: {marginLeft: '.4rem', display: 'flex',alignItems: 'center', justifyContent: 'center' },
   deletIcon: {marginLeft: '.4rem', display: 'flex',alignItems: 'center', justifyContent: 'center' }
@@ -21,18 +21,16 @@ const style = {
 class CardNota extends Component {
   render() { 
     return (
-    
-        <Card sx={style.card}>
+          <Card sx={style.card}>
         <CardContent sx={style.cardContent}>
           <Typography sx={style.typographyS}>{this.props.titulo}</Typography>
           <Typography sx={style.typography} variant='body2'>{this.props.texto}</Typography>
         </CardContent>
-        <CardActions sx={{display: 'flex', justifyContent: 'space-between'}}>
-          <Button sx={style.button}>Editar Nota<EditIcon sx={style.editIcon}/></Button>
-          <Button sx={style.button}>Remover nota<DeleteIcon sx={style.deletIcon}/></Button> 
+        <CardActions sx={style.cardActions}>
+          <Button sx={style.button}>Editar<EditIcon sx={style.editIcon}/></Button>
+          <Button sx={style.button}>Remover<DeleteIcon sx={style.deletIcon}/></Button> 
         </CardActions>
       </Card>
-     
     );
   }
 }

@@ -7,8 +7,8 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const style = {
   stack: {float: 'left',margin: '2rem'},
-  textField: {minWidth: 400, margin: '1rem',fontFamily: 'Roboto'},
-  button: {display: 'flex', alignItems: 'center', justifyContent: 'center' ,background:'#add8e6', padding: '.6rem', margin: '2rem'},
+  textField: {minWidth: 400, margin: '1rem',fontFamily: 'Roboto',background: '#fff'},
+  button: {display: 'flex', alignItems: 'center', justifyContent: 'center' ,background:'#74bbfb', padding: '.6rem', margin: '1rem'},
   addCircleIcon : {marginLeft: '.8rem'}
 }
 

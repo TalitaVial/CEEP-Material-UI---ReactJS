@@ -8,8 +8,9 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
+
 const style = {
-  card: { width: 500, marginLeft: '5rem',display: 'block'},
+  card: { width: 450,display: 'block', background: '#ffff',flot: 'rigth'},
   cardContent : {textAlign:'flex-start'},
   typographyS : {fontSize: '1.3rem', fontFamily: 'Roboto'},
   typography : {fontSize: '1rem', fontFamily: 'Roboto'},
@@ -20,7 +21,8 @@ const style = {
 class CardNota extends Component {
   render() { 
     return (
-      <Card sx={style.card}>
+    
+        <Card sx={style.card}>
         <CardContent sx={style.cardContent}>
           <Typography sx={style.typographyS}>{this.props.titulo}</Typography>
           <Typography sx={style.typography} variant='body2'>{this.props.texto}</Typography>
@@ -30,7 +32,7 @@ class CardNota extends Component {
           <Button sx={style.button}>Remover nota<DeleteIcon sx={style.deletIcon}/></Button> 
         </CardActions>
       </Card>
-   
+     
     );
   }
 }

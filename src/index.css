@@ -1,5 +1,17 @@
+html {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    175deg,
+    rgba(116, 188, 251, 0.555) 1%,
+    rgba(185,242,255,1) 99%
+
+  );
+}
+
 .sessao_componentes{
   display: flex;
   flex-wrap: wrap;
 
 }
+

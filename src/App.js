@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import FormularioCadastro from './components/FormularioCadastro'
 import ListaDeNotas from './components/ListaDeNotas'
+import ListaDeCategorias from './components/ListaDeCategorias'
 import './index.css'
 class App extends Component {
   constructor() {
@@ -19,11 +20,23 @@ class App extends Component {
     this.setState(novoEstado)
   }
 
+  deletarNota(index) {
+    let arrayDeNotas = this.state.notas
+    arrayDeNotas.splice(index, 1)
+    this.setState({ notas: arrayDeNotas })
+  }
+
   render() {
     return (
       <div className="sessao_componentes">
         <FormularioCadastro criarNota={this.criarNota.bind(this)} />
-        <ListaDeNotas notas={this.state.notas} />
+        <section>
+          <ListaDeCategorias />
+        </section>
+        <ListaDeNotas
+          deletarNota={this.deletarNota.bind(this)}
+          notas={this.state.notas}
+        />
       </div>
     )
   }

@@ -19,16 +19,22 @@ const style = {
   deletIcon: {marginLeft: '.4rem', display: 'flex',alignItems: 'center', justifyContent: 'center' }
 }
 class CardNota extends Component {
+
+  deletar(){
+    const indice = this.props.indice
+    this.props.deletarNota(indice)
+  }
+
   render() { 
     return (
-          <Card sx={style.card}>
+          <Card>
         <CardContent sx={style.cardContent}>
           <Typography sx={style.typographyS}>{this.props.titulo}</Typography>
           <Typography sx={style.typography} variant='body2'>{this.props.texto}</Typography>
         </CardContent>
         <CardActions sx={style.cardActions}>
           <Button sx={style.button}>Editar<EditIcon sx={style.editIcon}/></Button>
-          <Button sx={style.button}>Remover<DeleteIcon sx={style.deletIcon}/></Button> 
+          <Button onClick={this.deletar.bind(this)} sx={style.button}>Remover<DeleteIcon sx={style.deletIcon}/></Button> 
         </CardActions>
       </Card>
     );

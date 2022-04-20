@@ -7,7 +7,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { ButtonGroup } from '@mui/material';
 
 const style = {
-  stack: {minWidth: '45vw',margin: '1rem'},
+  stack: {minWidth: '40vw',margin: '1rem'},
   textField: {margin: '1rem',fontFamily: 'Roboto',background: '#fff'},
   button: {display: 'flex', alignItems: 'center', justifyContent: 'center' ,background:'#74bbfb', padding: '.6rem', margin: '1rem'},
   addCircleIcon : {marginLeft: '.8rem'}

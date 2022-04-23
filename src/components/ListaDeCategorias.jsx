@@ -1,17 +1,24 @@
 import { Box, List, ListItem, TextField} from '@mui/material';
 import React, {Component} from 'react';
 
+
+const style={
+    box: {display: 'flex', marginTop: '1.5rem'},
+    list: {display: 'flex'},
+    textField: {marginLeft: '8rem', width: '18rem'}
+
+}
 class ListaDeCategorias extends Component {
- 
+
   render() { 
     return (
-      <Box sx={{display: 'flex'}}>
-        <List sx={{display: 'flex'}}>
+      <Box sx={style.box}>
+        <List sx={style.list}>
           <ListItem>Categoria</ListItem>
           <ListItem>Categoria</ListItem>
           <ListItem>Categoria</ListItem>
         </List>
-        <TextField id="outlined-basic" label="" variant="outlined" />
+        <TextField sx={style.textField} id="outlined-basic" label="Insira uma categoria" variant="outlined" />
       </Box>   
     );
   }

@@ -10,6 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 
 const style = {
+  card: {borderRadius: '.5rem'},
   cardContent : {display: 'block'},
   typographyS : {fontSize: '1.3rem', fontFamily: 'Roboto'},
   typography : {fontSize: '1rem', fontFamily: 'Roboto'},
@@ -27,7 +28,7 @@ class CardNota extends Component {
 
   render() { 
     return (
-          <Card>
+      <Card sx={style.card}>
         <CardContent sx={style.cardContent}>
           <Typography sx={style.typographyS}>{this.props.titulo}</Typography>
           <Typography sx={style.typography} variant='body2'>{this.props.texto}</Typography>

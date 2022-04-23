@@ -1,25 +1,35 @@
-import { Box, List, ListItem, TextField} from '@mui/material';
+import { Stack, List, ListItem, TextField} from '@mui/material';
 import React, {Component} from 'react';
 
 
 const style={
-    box: {display: 'flex', marginTop: '1.5rem'},
-    list: {display: 'flex'},
-    textField: {marginLeft: '8rem', width: '18rem'}
-
+    box: {display: 'flex', marginTop: '1.5rem', marginLeft: '3rem', maxWidth: '50%'},
+    list: {display: 'flex', marginTop: '3rem', maxWidth: '10rem'},
+    listItem: {background: '#74bbfb', borderRadius: '.5rem', margin: '.5rem'},
+    textField: {marginLeft: '2rem', width: '18rem'},
+    
 }
 class ListaDeCategorias extends Component {
 
+  _handleCategoria(e){
+    if(e.key === 'Enter'){
+      let valorCategoria = e.target.value
+      this.props.adicionarCategoria(valorCategoria)
+    }
+    
+  }
+
   render() { 
     return (
-      <Box sx={style.box}>
-        <List sx={style.list}>
-          <ListItem>Categoria</ListItem>
-          <ListItem>Categoria</ListItem>
-          <ListItem>Categoria</ListItem>
+      <Stack sx={style.box}>
+          <TextField onKeyUp={this._handleCategoria.bind(this)} sx={style.textField} id="outlined-basic" label="Insira uma categoria" variant="outlined" />
+          <List sx={style.list}>
+          {this.props.categorias.map((categoria, index) => {
+            return <ListItem key={index} sx={style.listItem}>{categoria}</ListItem>
+          })}
+          
         </List>
-        <TextField sx={style.textField} id="outlined-basic" label="Insira uma categoria" variant="outlined" />
-      </Box>   
+      </Stack>   
     );
   }
 }

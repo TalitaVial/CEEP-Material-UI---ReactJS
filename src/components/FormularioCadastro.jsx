@@ -23,8 +23,17 @@ class FormularioCadastro extends Component {
     super(props);
     this.titulo="";
     this.texto = "";
-    this.categoria = "";
+    this.categoria = "Sem Categoria";
+    this.state = {categorias: []}
 
+  }
+
+  componentDidMount(){
+    this.props.categorias.inscrever(this._novaCategoria.bind(this))
+  }
+
+  _novaCategoria(categorias){
+    this.setState({...this.state, categorias})
   }
 
   _handleMudancaCategoria(event){
@@ -56,8 +65,8 @@ class FormularioCadastro extends Component {
         <TextField onChange={this._handleMudancaTitulo.bind(this)} sx={style.textField} hiddenLabel id="filled-hidden-label-small" defaultValue="Título" variant="filled" size="small" />
         <NativeSelect onChange={this._handleMudancaCategoria.bind(this)} sx={style.select} variant="filled">
         <option>Sem categoria</option>
-        {this.props.categorias.map((categoria) =>{
-          return <option>{categoria}</option>
+        {this.state.categorias.map((categoria,index) =>{
+          return <option key={index}>{categoria}</option>
         })}</NativeSelect>
         <TextField onChange={this._handleMudancaTexto.bind(this)} sx={style.textField} id="filled-multiline-static" multiline rows={6} defaultValue="Escreva sua Nota" variant="filled"/>
         <ButtonGroup>

@@ -11,6 +11,19 @@ const style={
 }
 class ListaDeCategorias extends Component {
 
+  constructor(){
+    super()
+    this.state = {categorias: []}
+  }
+
+  componentDidMount(){
+    this.props.categorias.inscrever(this._novaCategoria.bind(this))
+  }
+
+  _novaCategoria(categorias){
+    this.setState({...this.state, categorias})
+  }
+
   _handleCategoria(e){
     if(e.key === 'Enter'){
       let valorCategoria = e.target.value
@@ -24,7 +37,7 @@ class ListaDeCategorias extends Component {
       <Stack sx={style.box}>
           <TextField onKeyUp={this._handleCategoria.bind(this)} sx={style.textField} id="outlined-basic" label="Insira uma categoria" variant="outlined" />
           <List sx={style.list}>
-          {this.props.categorias.map((categoria, index) => {
+          {this.state.categorias.map((categoria, index) => {
             return <ListItem key={index} sx={style.listItem}>{categoria}</ListItem>
           })}
           

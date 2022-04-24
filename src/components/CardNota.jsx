@@ -30,6 +30,7 @@ class CardNota extends Component {
     return (
       <Card sx={style.card}>
         <CardContent sx={style.cardContent}>
+          <Typography  sx={style.typographyS}>{this.props.categoria}</Typography>
           <Typography sx={style.typographyS}>{this.props.titulo}</Typography>
           <Typography sx={style.typography} variant='body2'>{this.props.texto}</Typography>
         </CardContent>

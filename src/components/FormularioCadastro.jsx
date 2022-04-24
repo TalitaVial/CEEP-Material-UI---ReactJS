@@ -23,7 +23,13 @@ class FormularioCadastro extends Component {
     super(props);
     this.titulo="";
     this.texto = "";
+    this.categoria = "";
 
+  }
+
+  _handleMudancaCategoria(event){
+    event.stopPropagation()
+    this.categoria = event.target.value
   }
 
   _handleMudancaTitulo(event){
@@ -41,14 +47,16 @@ class FormularioCadastro extends Component {
   _criarNota(event){
     event.preventDefault()
     event.stopPropagation()
-    this.props.criarNota(this.titulo, this.texto)
+    this.props.criarNota(this.titulo, this.texto, this.categoria)
   }
 
   render() { 
     return (
       <FormControl sx={style.formControl} onSubmit={this._criarNota.bind(this)} component="form" autoComplete="off">
         <TextField onChange={this._handleMudancaTitulo.bind(this)} sx={style.textField} hiddenLabel id="filled-hidden-label-small" defaultValue="Título" variant="filled" size="small" />
-        <NativeSelect sx={style.select} variant="filled">{this.props.categorias.map((categoria) =>{
+        <NativeSelect onChange={this._handleMudancaCategoria.bind(this)} sx={style.select} variant="filled">
+        <option>Sem categoria</option>
+        {this.props.categorias.map((categoria) =>{
           return <option>{categoria}</option>
         })}</NativeSelect>
         <TextField onChange={this._handleMudancaTexto.bind(this)} sx={style.textField} id="filled-multiline-static" multiline rows={6} defaultValue="Escreva sua Nota" variant="filled"/>

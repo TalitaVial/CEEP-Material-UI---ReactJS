@@ -18,7 +18,8 @@ class ListaDeNotas extends Component {
               indice={index}
               deletarNota={this.props.deletarNota} 
               titulo={nota.titulo} 
-              texto={nota.texto}/>
+              texto={nota.texto}
+              />
             </ListItem>
         )})}
       </List>

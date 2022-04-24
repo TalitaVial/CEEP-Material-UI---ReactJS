@@ -14,10 +14,15 @@ class ListaDeCategorias extends Component {
   constructor(){
     super()
     this.state = {categorias: []}
+    this._novaCategoria = this._novaCategoria.bind(this)
   }
 
   componentDidMount(){
-    this.props.categorias.inscrever(this._novaCategoria.bind(this))
+    this.props.categorias.inscrever(this._novaCategoria)
+  }
+
+  componentWillUnmount(){
+    this.props.categorias.desinscrever(this._novaCategoria)
   }
 
   _novaCategoria(categorias){

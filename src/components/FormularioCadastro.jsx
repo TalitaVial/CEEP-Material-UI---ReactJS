@@ -25,11 +25,16 @@ class FormularioCadastro extends Component {
     this.texto = "";
     this.categoria = "Sem Categoria";
     this.state = {categorias: []}
+    this._novaCategoria = this._novaCategoria.bind(this)
 
   }
 
   componentDidMount(){
-    this.props.categorias.inscrever(this._novaCategoria.bind(this))
+    this.props.categorias.inscrever(this._novaCategoria)
+  }
+
+  componentWillUnmount(){
+    this.props.categorias.desinscrever(this._novaCategoria)
   }
 
   _novaCategoria(categorias){
